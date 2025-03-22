@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Didot', serif;
+      color: #333;
+      max-width: 800px; /* ← 元の指定をそのまま残しています */
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: 300;
+      text-align: center;
+      letter-spacing: 5px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      background-color: #f9f9f9;
+      padding: 10px 0;
+      white-space: nowrap;
+    }
+    
+    .category {
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-align: center;
+      margin: 0 15px;
+      padding-bottom: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    
+    .category.active {
+      border-bottom: 1px solid #333;
+    }
+    
+    .subcategory {
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-align: center;
+      margin: 25px 0 20px;
+      text-transform: uppercase;
+      display: none; /* 初期状態は非表示 */
+    }
+    
+    .wine-list {
+      display: none; /* 初期状態は非表示 */
+      margin-bottom: 30px;
+    }
+    
+    .wine {
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    
+    .wine-name {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    
+    .wine-details {
+      font-style: italic;
+      color: #666;
+    }
+    
+    .wine-price {
+      float: right;
+      font-weight: 300;
+    }
+    
+    .content-area {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>RISABUROU SELECTION</h1>
+  
+  <div class="nav-container">
+    <div class="category active" id="glass-category" onclick="toggleCategory('glass')">By The Glass</div>
+    <div class="category" id="bottle-category" onclick="toggleCategory('bottle')">By The Bottle</div>
+    <div class="category" id="french-category" onclick="toggleCategory('french')">French Collection</div>
+  </div>
+  
+  <div class="content-area">
+    <!-- ===================== BY THE GLASS ===================== -->
+    <div class="subcategory" id="white-rose-subcategory">White & Rosé</div>
+    <div class="wine-list" id="white-rose-list">
+      <!-- ここに1行追加して、「GLASS」と表示 -->
+      <div class="wine">
+        <span class="wine-name"></span>
+        <span class="wine-price">glass</span><br>
+        <span class="wine-details"></span>
+      </div>
+
+      <div class="wine">
+        <span class="wine-name">Chablis Premier Cru</span> 
+        <span class="wine-price">1,800</span><br>
+        <span class="wine-details">Domaine William Fèvre, Burgundy, France, 2022</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Sancerre</span> 
+        <span class="wine-price">1,600</span><br>
+        <span class="wine-details">Pascal Jolivet, Loire Valley, France, 2023</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Riesling Kabinett</span> 
+        <span class="wine-price">1,400</span><br>
+        <span class="wine-details">Dr. Loosen, Mosel, Germany, 2022</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Albariño</span> 
+        <span class="wine-price">1,500</span><br>
+        <span class="wine-details">Pazo de Señorans, Rías Baixas, Spain, 2023</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Grüner Veltliner</span> 
+        <span class="wine-price">1,300</span><br>
+        <span class="wine-details">Schloss Gobelsburg, Kamptal, Austria, 2023</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Chardonnay</span> 
+        <span class="wine-price">1,700</span><br>
+        <span class="wine-details">Kistler, Sonoma Mountain, California, 2021</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Sauvignon Blanc</span> 
+        <span class="wine-price">1,400</span><br>
+        <span class="wine-details">Cloudy Bay, Marlborough, New Zealand, 2023</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Viognier</span> 
+        <span class="wine-price">1,500</span><br>
+        <span class="wine-details">Yalumba, Eden Valley, Australia, 2022</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Provence Rosé</span> 
+        <span class="wine-price">1,300</span><br>
+        <span class="wine-details">Château d'Esclans Whispering Angel, France, 2023</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Gewürztraminer</span> 
+        <span class="wine-price">1,400</span><br>
+        <span class="wine-details">Trimbach, Alsace, France, 2022</span>
+      </div>
+    </div>
+    
+    <div class="subcategory" id="red-subcategory">Red</div>
+    <div class="wine-list" id="red-list">
+      <!-- ここに同じく1行追加して、「GLASS」と表示 -->
+      <div class="wine">
+        <span class="wine-name"></span>
+        <span class="wine-price">glass</span><br>
+        <span class="wine-details"></span>
+      </div>
+
+      <div class="wine">
+        <span class="wine-name">Bordeaux Grand Cru</span> 
+        <span class="wine-price">2,400</span><br>
+        <span class="wine-details">Château Pichon Baron, Pauillac, France, 2018</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Barolo</span> 
+        <span class="wine-price">2,200</span><br>
+        <span class="wine-details">Vietti Castiglione, Piedmont, Italy, 2019</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Pinot Noir</span> 
+        <span class="wine-price">1,900</span><br>
+        <span class="wine-details">Domaine de la Romanée-Conti, Burgundy, France, 2020</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Rioja Reserva</span> 
+        <span class="wine-price">1,600</span><br>
+        <span class="wine-details">Marqués de Murrieta, Spain, 2017</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Syrah</span> 
+        <span class="wine-price">1,800</span><br>
+        <span class="wine-details">Alain Graillot, Crozes-Hermitage, France, 2021</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Cabernet Sauvignon</span> 
+        <span class="wine-price">2,100</span><br>
+        <span class="wine-details">Stag's Leap Wine Cellars, Napa Valley, California, 2019</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Brunello di Montalcino</span> 
+        <span class="wine-price">2,300</span><br>
+        <span class="wine-details">Biondi-Santi, Tuscany, Italy, 2017</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Malbec Reserva</span> 
+        <span class="wine-price">1,700</span><br>
+        <span class="wine-details">Catena Zapata, Mendoza, Argentina, 2021</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Zinfandel</span> 
+        <span class="wine-price">1,500</span><br>
+        <span class="wine-details">Ridge Lytton Springs, Sonoma County, California, 2020</span>
+      </div>
+      <div class="wine">
+        <span class="wine-name">Châteauneuf-du-Pape</span> 
+        <span class="wine-price">2,000</span><br>
+        <span class="wine-details">Château de Beaucastel, Rhône, France, 2019</span>
+      </div>
+    </div>
+    
+    <!-- ===================== BY THE BOTTLE ===================== -->
+    <div class="wine-list" id="bottle-list">
+      <div class="subcategory" id="bottle-sparkling-subcategory">Sparkling</div>
+      <div class="wine-list" id="bottle-sparkling-list">
+        <div class="wine">
+          <span class="wine-name">Dom Pérignon Vintage</span> 
+          <span class="wine-price">28,000</span><br>
+          <span class="wine-details">Moët & Chandon, Champagne, France, 2012</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Krug Grande Cuvée</span> 
+          <span class="wine-price">45,000</span><br>
+          <span class="wine-details">Krug, Champagne, France, Édition 170</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Bollinger La Grande Année</span> 
+          <span class="wine-price">35,000</span><br>
+          <span class="wine-details">Bollinger, Champagne, France, 2014</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Louis Roederer Cristal</span> 
+          <span class="wine-price">40,000</span><br>
+          <span class="wine-details">Louis Roederer, Champagne, France, 2013</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Jacques Selosse Initial</span> 
+          <span class="wine-price">48,000</span><br>
+          <span class="wine-details">Anselme Selosse, Champagne, France, NV</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Perrier-Jouët Belle Epoque</span> 
+          <span class="wine-price">30,000</span><br>
+          <span class="wine-details">Perrier-Jouët, Champagne, France, 2013</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Cava Gran Reserva Heredad</span> 
+          <span class="wine-price">8,000</span><br>
+          <span class="wine-details">Segura Viudas, Penedès, Spain, NV</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Recaredo Brut Nature</span> 
+          <span class="wine-price">9,000</span><br>
+          <span class="wine-details">Recaredo, Corpinnat, Spain, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Prosecco Superiore Brut</span> 
+          <span class="wine-price">6,000</span><br>
+          <span class="wine-details">Valdo, Valdobbiadene, Italy, NV</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Franciacorta Cuvée Prestige</span> 
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">Ca' del Bosco, Lombardy, Italy, NV</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="bottle-spanish-white-subcategory">Spanish White</div>
+      <div class="wine-list" id="bottle-spanish-white-list">
+        <div class="wine">
+          <span class="wine-name">Albariño Selección de Añada</span> 
+          <span class="wine-price">7,500</span><br>
+          <span class="wine-details">Pazo de Señorans, Rías Baixas, Spain, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Do Ferreiro Cepas Vellas</span> 
+          <span class="wine-price">8,000</span><br>
+          <span class="wine-details">Bodegas Gerardo Méndez, Rías Baixas, Spain, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Verdejo Belondrade y Lurton</span> 
+          <span class="wine-price">9,500</span><br>
+          <span class="wine-details">Belondrade, Rueda, Spain, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Godello La Revelía</span> 
+          <span class="wine-price">6,800</span><br>
+          <span class="wine-details">Emilio Moro, Bierzo, Spain, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Txakoli Artizar</span> 
+          <span class="wine-price">5,500</span><br>
+          <span class="wine-details">Bodega Gaintza, Getariako Txakolina, Spain, 2022</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Priorat White Nelin</span> 
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Clos Mogador, Priorat, Spain, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Viura Barrel Fermented</span> 
+          <span class="wine-price">7,000</span><br>
+          <span class="wine-details">Remelluri, Rioja, Spain, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Macabeo-Chardonnay Gran Eliana</span> 
+          <span class="wine-price">5,800</span><br>
+          <span class="wine-details">Bodegas Eliana, Valencia, Spain, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Ribeiro Blanco</span> 
+          <span class="wine-price">6,200</span><br>
+          <span class="wine-details">Coto de Gomariz, Galicia, Spain, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Miranda d'Espiells</span> 
+          <span class="wine-price">5,600</span><br>
+          <span class="wine-details">Juvé & Camps, Penedès, Spain, 2020</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="bottle-french-white-rose-subcategory">French White & Rosé</div>
+      <div class="wine-list" id="bottle-french-white-rose-list">
+        <div class="wine">
+          <span class="wine-name">Puligny-Montrachet</span> 
+          <span class="wine-price">22,000</span><br>
+          <span class="wine-details">Domaine Leflaive, Burgundy, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Meursault Les Narvaux</span> 
+          <span class="wine-price">18,000</span><br>
+          <span class="wine-details">Domaine Roulot, Burgundy, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Sancerre Les Monts Damnés</span> 
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Domaine Pascal Cotat, Loire, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Gewurztraminer Cuvée des Seigneurs</span> 
+          <span class="wine-price">9,000</span><br>
+          <span class="wine-details">Domaine Weinbach, Alsace, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Chassagne-Montrachet 1er Cru</span> 
+          <span class="wine-price">20,000</span><br>
+          <span class="wine-details">Domaine Ramonet, Burgundy, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Rosé de Provence Garrus</span> 
+          <span class="wine-price">15,000</span><br>
+          <span class="wine-details">Château d'Esclans, Provence, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Bandol Rosé</span> 
+          <span class="wine-price">8,500</span><br>
+          <span class="wine-details">Domaine Tempier, Provence, France, 2022</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pouilly-Fumé Pur Sang</span> 
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">Didier Dagueneau, Loire, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Hermitage Blanc</span> 
+          <span class="wine-price">25,000</span><br>
+          <span class="wine-details">Jean-Louis Chave, Rhône, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Condrieu</span> 
+          <span class="wine-price">14,000</span><br>
+          <span class="wine-details">E. Guigal, Rhône, France, 2021</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="bottle-italian-white-orange-subcategory">Italian White & Orange</div>
+      <div class="wine-list" id="bottle-italian-white-orange-list">
+        <div class="wine">
+          <span class="wine-name">Pinot Grigio</span> 
+          <span class="wine-price">5,500</span><br>
+          <span class="wine-details">Jermann, Friuli, Italy, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Soave Classico La Rocca</span> 
+          <span class="wine-price">8,500</span><br>
+          <span class="wine-details">Pieropan, Veneto, Italy, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Verdicchio dei Castelli di Jesi</span> 
+          <span class="wine-price">6,000</span><br>
+          <span class="wine-details">Villa Bucci, Marche, Italy, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Greco di Tufo</span> 
+          <span class="wine-price">7,000</span><br>
+          <span class="wine-details">Mastroberardino, Campania, Italy, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Fiano di Avellino Pietracalda</span> 
+          <span class="wine-price">7,500</span><br>
+          <span class="wine-details">Feudi di San Gregorio, Campania, Italy, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Bianco Secco</span> 
+          <span class="wine-price">8,000</span><br>
+          <span class="wine-details">Quintarelli, Veneto, Italy, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Vino Bianco Anfora (Orange)</span> 
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">COS, Sicily, Italy, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Vitovska Amphora (Orange)</span> 
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">Gravner, Friuli, Italy, 2013</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Ribolla Gialla (Orange)</span> 
+          <span class="wine-price">14,000</span><br>
+          <span class="wine-details">Radikon, Friuli, Italy, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Malvasia (Orange)</span> 
+          <span class="wine-price">9,500</span><br>
+          <span class="wine-details">Borić, Collio, Italy, 2018</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="bottle-spanish-red-subcategory">Spanish Red</div>
+      <div class="wine-list" id="bottle-spanish-red-list">
+        <div class="wine">
+          <span class="wine-name">Rioja Gran Reserva 890</span> 
+          <span class="wine-price">18,000</span><br>
+          <span class="wine-details">La Rioja Alta, Rioja, Spain, 2010</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Vega Sicilia Único</span> 
+          <span class="wine-price">45,000</span><br>
+          <span class="wine-details">Bodegas Vega Sicilia, Ribera del Duero, Spain, 2009</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pingus</span> 
+          <span class="wine-price">80,000</span><br>
+          <span class="wine-details">Dominio de Pingus, Ribera del Duero, Spain, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pesquera Reserva</span> 
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Tinto Pesquera, Ribera del Duero, Spain, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Clos Mogador</span> 
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">Priorat, Spain, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">L'Ermita</span> 
+          <span class="wine-price">65,000</span><br>
+          <span class="wine-details">Álvaro Palacios, Priorat, Spain, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">El Nido</span> 
+          <span class="wine-price">20,000</span><br>
+          <span class="wine-details">Jumilla, Spain, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Artadi Viña El Pisón</span> 
+          <span class="wine-price">25,000</span><br>
+          <span class="wine-details">Bodegas Artadi, Rioja, Spain, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Muga Prado Enea</span> 
+          <span class="wine-price">9,000</span><br>
+          <span class="wine-details">Bodegas Muga, Rioja, Spain, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Emilio Moro Malleolus</span> 
+          <span class="wine-price">8,000</span><br>
+          <span class="wine-details">Ribera del Duero, Spain, 2019</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="bottle-italian-red-subcategory">Italian Red</div>
+      <div class="wine-list" id="bottle-italian-red-list">
+        <div class="wine">
+          <span class="wine-name">Barolo Brunate</span> 
+          <span class="wine-price">15,000</span><br>
+          <span class="wine-details">Roberto Voerzio, Piedmont, Italy, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Barbaresco Sori Tildin</span> 
+          <span class="wine-price">20,000</span><br>
+          <span class="wine-details">Gaja, Piedmont, Italy, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Amarone della Valpolicella Classico</span> 
+          <span class="wine-price">14,000</span><br>
+          <span class="wine-details">Giuseppe Quintarelli, Veneto, Italy, 2012</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Tignanello</span> 
+          <span class="wine-price">18,000</span><br>
+          <span class="wine-details">Marchesi Antinori, Toscana IGT, Italy, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Sassicaia</span> 
+          <span class="wine-price">28,000</span><br>
+          <span class="wine-details">Tenuta San Guido, Bolgheri, Italy, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Masseto</span> 
+          <span class="wine-price">60,000</span><br>
+          <span class="wine-details">Toscana IGT, Italy, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Brunello di Montalcino Cerretalto</span> 
+          <span class="wine-price">25,000</span><br>
+          <span class="wine-details">Casanova di Neri, Tuscany, Italy, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Chianti Classico Gran Selezione</span> 
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Castello di Ama, Tuscany, Italy, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Barolo Riserva Monfortino</span> 
+          <span class="wine-price">50,000</span><br>
+          <span class="wine-details">Giacomo Conterno, Piedmont, Italy, 2014</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Vino Nobile di Montepulciano</span> 
+          <span class="wine-price">9,000</span><br>
+          <span class="wine-details">Avignonesi, Tuscany, Italy, 2019</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="bottle-french-red-subcategory">French Red</div>
+      <div class="wine-list" id="bottle-french-red-list">
+        <div class="wine">
+          <span class="wine-name">Château Margaux</span> 
+          <span class="wine-price">70,000</span><br>
+          <span class="wine-details">Bordeaux, France, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Lafite Rothschild</span> 
+          <span class="wine-price">85,000</span><br>
+          <span class="wine-details">Pauillac, Bordeaux, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Mouton Rothschild</span> 
+          <span class="wine-price">90,000</span><br>
+          <span class="wine-details">Pauillac, Bordeaux, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pétrus</span> 
+          <span class="wine-price">200,000</span><br>
+          <span class="wine-details">Pomerol, Bordeaux, France, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château d'Yquem (Red is a fictional mix)</span> 
+          <span class="wine-price">140,000</span><br>
+          <span class="wine-details">Sauternes (typically sweet white!), France</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Musigny Grand Cru</span> 
+          <span class="wine-price">120,000</span><br>
+          <span class="wine-details">Domaine Comte Georges de Vogüé, Burgundy, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Chambertin Clos de Bèze</span> 
+          <span class="wine-price">110,000</span><br>
+          <span class="wine-details">Domaine Armand Rousseau, Burgundy, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Côte-Rôtie La Landonne</span> 
+          <span class="wine-price">30,000</span><br>
+          <span class="wine-details">E. Guigal, Rhône, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Hermitage La Chapelle</span> 
+          <span class="wine-price">25,000</span><br>
+          <span class="wine-details">Paul Jaboulet Aîné, Rhône, France, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pommard 1er Cru Les Rugiens</span> 
+          <span class="wine-price">15,000</span><br>
+          <span class="wine-details">Domaine de Courcel, Burgundy, France, 2019</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ===================== FRENCH COLLECTION ===================== -->
+    <div class="wine-list" id="french-list">
+      <!-- 新しいサブカテゴリー (Champagne, Bordeaux, Bourgogne, etc.) ... -->
+      <div class="subcategory" id="french-champagne-subcategory">Champagne</div>
+      <div class="wine-list" id="french-champagne-list">
+        <div class="wine">
+          <span class="wine-name">Krug Clos d'Ambonnay</span>
+          <span class="wine-price">300,000</span><br>
+          <span class="wine-details">Krug, Champagne, France, 2006</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Salon "Le Mesnil"</span>
+          <span class="wine-price">180,000</span><br>
+          <span class="wine-details">Salon, Champagne, France, 2008</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Dom Pérignon P2</span>
+          <span class="wine-price">90,000</span><br>
+          <span class="wine-details">Moët & Chandon, Champagne, France, 2004</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Ruinart Blanc de Blancs</span>
+          <span class="wine-price">25,000</span><br>
+          <span class="wine-details">Ruinart, Champagne, France, NV</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pol Roger "Cuvée Sir Winston Churchill"</span>
+          <span class="wine-price">50,000</span><br>
+          <span class="wine-details">Pol Roger, Champagne, France, 2013</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Taittinger "Comtes de Champagne"</span>
+          <span class="wine-price">40,000</span><br>
+          <span class="wine-details">Taittinger, Champagne, France, 2012</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Bollinger R.D. Extra Brut</span>
+          <span class="wine-price">38,000</span><br>
+          <span class="wine-details">Bollinger, Champagne, France, 2007</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Charles Heidsieck "Blanc des Millénaires"</span>
+          <span class="wine-price">45,000</span><br>
+          <span class="wine-details">Charles Heidsieck, Champagne, France, 2006</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Billecart-Salmon "Cuvée Nicolas François"</span>
+          <span class="wine-price">42,000</span><br>
+          <span class="wine-details">Billecart-Salmon, Champagne, France, 2006</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Deutz "Amour de Deutz"</span>
+          <span class="wine-price">30,000</span><br>
+          <span class="wine-details">Deutz, Champagne, France, 2011</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="french-bordeaux-subcategory">Bordeaux</div>
+      <div class="wine-list" id="french-bordeaux-list">
+        <div class="wine">
+          <span class="wine-name">Château Latour</span>
+          <span class="wine-price">120,000</span><br>
+          <span class="wine-details">Pauillac, Bordeaux, France, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Cheval Blanc</span>
+          <span class="wine-price">100,000</span><br>
+          <span class="wine-details">Saint-Émilion, Bordeaux, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Haut-Brion</span>
+          <span class="wine-price">90,000</span><br>
+          <span class="wine-details">Pessac-Léognan, Bordeaux, France, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Ducru-Beaucaillou</span>
+          <span class="wine-price">50,000</span><br>
+          <span class="wine-details">Saint-Julien, Bordeaux, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Léoville Las Cases</span>
+          <span class="wine-price">40,000</span><br>
+          <span class="wine-details">Saint-Julien, Bordeaux, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Pontet-Canet</span>
+          <span class="wine-price">30,000</span><br>
+          <span class="wine-details">Pauillac, Bordeaux, France, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Cos d'Estournel</span>
+          <span class="wine-price">45,000</span><br>
+          <span class="wine-details">Saint-Estèphe, Bordeaux, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Palmer</span>
+          <span class="wine-price">60,000</span><br>
+          <span class="wine-details">Margaux, Bordeaux, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Pichon Lalande</span>
+          <span class="wine-price">38,000</span><br>
+          <span class="wine-details">Pauillac, Bordeaux, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Canon</span>
+          <span class="wine-price">20,000</span><br>
+          <span class="wine-details">Saint-Émilion, Bordeaux, France, 2019</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="french-bourgogne-subcategory">Bourgogne</div>
+      <div class="wine-list" id="french-bourgogne-list">
+        <div class="wine">
+          <span class="wine-name">Romanée-Conti Grand Cru</span>
+          <span class="wine-price">1,000,000</span><br>
+          <span class="wine-details">Domaine de la Romanée-Conti, Burgundy, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">La Tâche Grand Cru</span>
+          <span class="wine-price">500,000</span><br>
+          <span class="wine-details">Domaine de la Romanée-Conti, Burgundy, France, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Chambertin Grand Cru</span>
+          <span class="wine-price">300,000</span><br>
+          <span class="wine-details">Domaine Armand Rousseau, Burgundy, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Richebourg Grand Cru</span>
+          <span class="wine-price">450,000</span><br>
+          <span class="wine-details">Domaine de la Romanée-Conti, Burgundy, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Musigny Grand Cru</span>
+          <span class="wine-price">600,000</span><br>
+          <span class="wine-details">Domaine Leroy, Burgundy, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Clos de Tart Grand Cru</span>
+          <span class="wine-price">200,000</span><br>
+          <span class="wine-details">Mommessin, Burgundy, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Echézeaux Grand Cru</span>
+          <span class="wine-price">100,000</span><br>
+          <span class="wine-details">Domaine Jean Grivot, Burgundy, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Corton-Charlemagne</span>
+          <span class="wine-price">350,000</span><br>
+          <span class="wine-details">Coche-Dury, Burgundy, France, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Montrachet Grand Cru</span>
+          <span class="wine-price">400,000</span><br>
+          <span class="wine-details">Domaine Leflaive, Burgundy, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Meursault 1er Cru Perrières</span>
+          <span class="wine-price">150,000</span><br>
+          <span class="wine-details">Coche-Dury, Burgundy, France, 2019</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="french-rhone-subcategory">Rhône</div>
+      <div class="wine-list" id="french-rhone-list">
+        <div class="wine">
+          <span class="wine-name">Hermitage "Le Pavillon"</span>
+          <span class="wine-price">50,000</span><br>
+          <span class="wine-details">M. Chapoutier, Rhône, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Côte-Rôtie "La Turque"</span>
+          <span class="wine-price">60,000</span><br>
+          <span class="wine-details">E. Guigal, Rhône, France, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Hermitage "Cuvée Cathelin"</span>
+          <span class="wine-price">70,000</span><br>
+          <span class="wine-details">Jean-Louis Chave, Rhône, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Châteauneuf-du-Pape "Hommage à Jacques Perrin"</span>
+          <span class="wine-price">40,000</span><br>
+          <span class="wine-details">Château de Beaucastel, Rhône, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Côte-Rôtie "La Mordorée"</span>
+          <span class="wine-price">30,000</span><br>
+          <span class="wine-details">M. Chapoutier, Rhône, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Cornas "Les Vieilles Vignes"</span>
+          <span class="wine-price">20,000</span><br>
+          <span class="wine-details">Alain Voge, Rhône, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Gigondas "Le Claux"</span>
+          <span class="wine-price">15,000</span><br>
+          <span class="wine-details">Château de Saint Cosme, Rhône, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Saint-Joseph "Les Granits"</span>
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">M. Chapoutier, Rhône, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Crozes-Hermitage "Le Clos"</span>
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Paul Jaboulet Aîné, Rhône, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Vacqueyras "Grenat Noble"</span>
+          <span class="wine-price">8,000</span><br>
+          <span class="wine-details">Clos des Cazaux, Rhône, France, 2021</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="french-loire-subcategory">Loire</div>
+      <div class="wine-list" id="french-loire-list">
+        <div class="wine">
+          <span class="wine-name">Sancerre "Les Monts Damnés"</span>
+          <span class="wine-price">8,000</span><br>
+          <span class="wine-details">François Cotat, Loire, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Vouvray Moelleux</span>
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Domaine Huet, Loire, France, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pouilly-Fumé "Silex"</span>
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">Didier Dagueneau, Loire, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Chinon "Les Picasses"</span>
+          <span class="wine-price">6,000</span><br>
+          <span class="wine-details">Olga Raffault, Loire, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Muscadet Sèvre et Maine "Clos des Briords"</span>
+          <span class="wine-price">5,500</span><br>
+          <span class="wine-details">Domaine de la Pépière, Loire, France, 2022</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Saumur-Champigny "Clos Rougeard"</span>
+          <span class="wine-price">15,000</span><br>
+          <span class="wine-details">Foucault, Loire, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Savennieres "Coulée de Serrant"</span>
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">Nicolas Joly, Loire, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Bourgueil "Les Galichets"</span>
+          <span class="wine-price">7,000</span><br>
+          <span class="wine-details">Catherine & Pierre Breton, Loire, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Anjou "Le Berceau des Fées"</span>
+          <span class="wine-price">9,000</span><br>
+          <span class="wine-details">Richard Leroy, Loire, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Touraine "Le Bois Jacou"</span>
+          <span class="wine-price">5,500</span><br>
+          <span class="wine-details">Henry Marionnet, Loire, France, 2022</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="french-alsace-subcategory">Alsace</div>
+      <div class="wine-list" id="french-alsace-list">
+        <div class="wine">
+          <span class="wine-name">Riesling Clos Sainte Hune</span>
+          <span class="wine-price">20,000</span><br>
+          <span class="wine-details">Trimbach, Alsace, France, 2016</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Gewurztraminer Sélection de Grains Nobles</span>
+          <span class="wine-price">18,000</span><br>
+          <span class="wine-details">Zind-Humbrecht, Alsace, France, 2015</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Riesling Rangen de Thann Clos Saint Urbain</span>
+          <span class="wine-price">14,000</span><br>
+          <span class="wine-details">Domaine Zind-Humbrecht, Alsace, France, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pinot Gris Vendanges Tardives</span>
+          <span class="wine-price">15,000</span><br>
+          <span class="wine-details">Domaine Weinbach, Alsace, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Muscat Goldert</span>
+          <span class="wine-price">7,000</span><br>
+          <span class="wine-details">Domaine Burn, Alsace, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Sylvaner</span>
+          <span class="wine-price">5,500</span><br>
+          <span class="wine-details">Domaine Ostertag, Alsace, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pinot Blanc "B"</span>
+          <span class="wine-price">6,000</span><br>
+          <span class="wine-details">Albert Boxler, Alsace, France, 2022</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Pinot Noir "S"</span>
+          <span class="wine-price">9,000</span><br>
+          <span class="wine-details">Domaine Albert Mann, Alsace, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Grand Cru Brand Riesling</span>
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Josmeyer, Alsace, France, 2020</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Grand Cru Schlossberg Riesling</span>
+          <span class="wine-price">11,000</span><br>
+          <span class="wine-details">Domaine Weinbach, Alsace, France, 2020</span>
+        </div>
+      </div>
+
+      <div class="subcategory" id="french-provence-subcategory">Provence</div>
+      <div class="wine-list" id="french-provence-list">
+        <div class="wine">
+          <span class="wine-name">Domaines Ott Château de Selle Rosé</span>
+          <span class="wine-price">6,000</span><br>
+          <span class="wine-details">Domaines Ott, Provence, France, 2022</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Clos Cibonne Tibouren Rosé</span>
+          <span class="wine-price">5,500</span><br>
+          <span class="wine-details">Clos Cibonne, Provence, France, 2021</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Pradeaux Bandol Red</span>
+          <span class="wine-price">8,000</span><br>
+          <span class="wine-details">Château Pradeaux, Provence, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château Simone Palette Rouge</span>
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Château Simone, Provence, France, 2017</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Domaine Tempier Bandol "La Migoua"</span>
+          <span class="wine-price">9,000</span><br>
+          <span class="wine-details">Domaine Tempier, Provence, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château de Pibarnon Bandol</span>
+          <span class="wine-price">9,500</span><br>
+          <span class="wine-details">Château de Pibarnon, Provence, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Minuty Prestige Rosé</span>
+          <span class="wine-price">5,800</span><br>
+          <span class="wine-details">Château Minuty, Provence, France, 2022</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Domaine de la Bégude Bandol</span>
+          <span class="wine-price">8,500</span><br>
+          <span class="wine-details">Domaine de la Bégude, Provence, France, 2018</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Domaine Hauvette "Améthyste"</span>
+          <span class="wine-price">10,000</span><br>
+          <span class="wine-details">Domaine Hauvette, Provence, France, 2019</span>
+        </div>
+        <div class="wine">
+          <span class="wine-name">Château d'Esclans "Les Clans" Rosé</span>
+          <span class="wine-price">12,000</span><br>
+          <span class="wine-details">Château d'Esclans, Provence, France, 2021</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function toggleCategory(category) {
+      // すべてのカテゴリーから active クラスを外す
+      document.getElementById('glass-category').classList.remove('active');
+      document.getElementById('bottle-category').classList.remove('active');
+      document.getElementById('french-category').classList.remove('active');
+      
+      // 選択されたカテゴリーに active クラスを付与
+      document.getElementById(category + '-category').classList.add('active');
+      
+      if (category === 'glass') {
+        // BY THE GLASS の要素を表示
+        document.getElementById('white-rose-subcategory').style.display = 'block';
+        document.getElementById('red-subcategory').style.display = 'block';
+        document.getElementById('white-rose-list').style.display = 'block';
+        document.getElementById('red-list').style.display = 'block';
+        
+        // BY THE BOTTLE の要素を非表示
+        document.getElementById('bottle-list').style.display = 'none';
+        
+        // BY THE BOTTLE サブカテゴリもすべて非表示に
+        document.getElementById('bottle-sparkling-subcategory').style.display = 'none';
+        document.getElementById('bottle-spanish-white-subcategory').style.display = 'none';
+        document.getElementById('bottle-french-white-rose-subcategory').style.display = 'none';
+        document.getElementById('bottle-italian-white-orange-subcategory').style.display = 'none';
+        document.getElementById('bottle-spanish-red-subcategory').style.display = 'none';
+        document.getElementById('bottle-italian-red-subcategory').style.display = 'none';
+        document.getElementById('bottle-french-red-subcategory').style.display = 'none';
+
+        document.getElementById('bottle-sparkling-list').style.display = 'none';
+        document.getElementById('bottle-spanish-white-list').style.display = 'none';
+        document.getElementById('bottle-french-white-rose-list').style.display = 'none';
+        document.getElementById('bottle-italian-white-orange-list').style.display = 'none';
+        document.getElementById('bottle-spanish-red-list').style.display = 'none';
+        document.getElementById('bottle-italian-red-list').style.display = 'none';
+        document.getElementById('bottle-french-red-list').style.display = 'none';
+        
+        // FRENCH COLLECTION のサブカテゴリーも非表示
+        document.getElementById('french-list').style.display = 'none';
+        document.getElementById('french-champagne-subcategory').style.display = 'none';
+        document.getElementById('french-champagne-list').style.display = 'none';
+        document.getElementById('french-bordeaux-subcategory').style.display = 'none';
+        document.getElementById('french-bordeaux-list').style.display = 'none';
+        document.getElementById('french-bourgogne-subcategory').style.display = 'none';
+        document.getElementById('french-bourgogne-list').style.display = 'none';
+        document.getElementById('french-rhone-subcategory').style.display = 'none';
+        document.getElementById('french-rhone-list').style.display = 'none';
+        document.getElementById('french-loire-subcategory').style.display = 'none';
+        document.getElementById('french-loire-list').style.display = 'none';
+        document.getElementById('french-alsace-subcategory').style.display = 'none';
+        document.getElementById('french-alsace-list').style.display = 'none';
+        document.getElementById('french-provence-subcategory').style.display = 'none';
+        document.getElementById('french-provence-list').style.display = 'none';
+
+      } else if (category === 'bottle') {
+        // BY THE GLASS の要素を非表示
+        document.getElementById('white-rose-subcategory').style.display = 'none';
+        document.getElementById('red-subcategory').style.display = 'none';
+        document.getElementById('white-rose-list').style.display = 'none';
+        document.getElementById('red-list').style.display = 'none';
+        
+        // BY THE BOTTLE の要素を表示
+        document.getElementById('bottle-list').style.display = 'block';
+        
+        // BY THE BOTTLE サブカテゴリ・リストをすべて表示
+        document.getElementById('bottle-sparkling-subcategory').style.display = 'block';
+        document.getElementById('bottle-sparkling-list').style.display = 'block';
+        document.getElementById('bottle-spanish-white-subcategory').style.display = 'block';
+        document.getElementById('bottle-spanish-white-list').style.display = 'block';
+        document.getElementById('bottle-french-white-rose-subcategory').style.display = 'block';
+        document.getElementById('bottle-french-white-rose-list').style.display = 'block';
+        document.getElementById('bottle-italian-white-orange-subcategory').style.display = 'block';
+        document.getElementById('bottle-italian-white-orange-list').style.display = 'block';
+        document.getElementById('bottle-spanish-red-subcategory').style.display = 'block';
+        document.getElementById('bottle-spanish-red-list').style.display = 'block';
+        document.getElementById('bottle-italian-red-subcategory').style.display = 'block';
+        document.getElementById('bottle-italian-red-list').style.display = 'block';
+        document.getElementById('bottle-french-red-subcategory').style.display = 'block';
+        document.getElementById('bottle-french-red-list').style.display = 'block';
+
+        // FRENCH COLLECTION は非表示
+        document.getElementById('french-list').style.display = 'none';
+        document.getElementById('french-champagne-subcategory').style.display = 'none';
+        document.getElementById('french-champagne-list').style.display = 'none';
+        document.getElementById('french-bordeaux-subcategory').style.display = 'none';
+        document.getElementById('french-bordeaux-list').style.display = 'none';
+        document.getElementById('french-bourgogne-subcategory').style.display = 'none';
+        document.getElementById('french-bourgogne-list').style.display = 'none';
+        document.getElementById('french-rhone-subcategory').style.display = 'none';
+        document.getElementById('french-rhone-list').style.display = 'none';
+        document.getElementById('french-loire-subcategory').style.display = 'none';
+        document.getElementById('french-loire-list').style.display = 'none';
+        document.getElementById('french-alsace-subcategory').style.display = 'none';
+        document.getElementById('french-alsace-list').style.display = 'none';
+        document.getElementById('french-provence-subcategory').style.display = 'none';
+        document.getElementById('french-provence-list').style.display = 'none';
+
+      } else if (category === 'french') {
+        // BY THE GLASS の要素を非表示
+        document.getElementById('white-rose-subcategory').style.display = 'none';
+        document.getElementById('red-subcategory').style.display = 'none';
+        document.getElementById('white-rose-list').style.display = 'none';
+        document.getElementById('red-list').style.display = 'none';
+        
+        // BY THE BOTTLE の要素を非表示
+        document.getElementById('bottle-list').style.display = 'none';
+        document.getElementById('bottle-sparkling-subcategory').style.display = 'none';
+        document.getElementById('bottle-sparkling-list').style.display = 'none';
+        document.getElementById('bottle-spanish-white-subcategory').style.display = 'none';
+        document.getElementById('bottle-spanish-white-list').style.display = 'none';
+        document.getElementById('bottle-french-white-rose-subcategory').style.display = 'none';
+        document.getElementById('bottle-french-white-rose-list').style.display = 'none';
+        document.getElementById('bottle-italian-white-orange-subcategory').style.display = 'none';
+        document.getElementById('bottle-italian-white-orange-list').style.display = 'none';
+        document.getElementById('bottle-spanish-red-subcategory').style.display = 'none';
+        document.getElementById('bottle-spanish-red-list').style.display = 'none';
+        document.getElementById('bottle-italian-red-subcategory').style.display = 'none';
+        document.getElementById('bottle-italian-red-list').style.display = 'none';
+        document.getElementById('bottle-french-red-subcategory').style.display = 'none';
+        document.getElementById('bottle-french-red-list').style.display = 'none';
+        
+        // FRENCH COLLECTION を表示
+        document.getElementById('french-list').style.display = 'block';
+
+        // FRENCH COLLECTION サブカテゴリー・リストをすべて表示
+        document.getElementById('french-champagne-subcategory').style.display = 'block';
+        document.getElementById('french-champagne-list').style.display = 'block';
+        document.getElementById('french-bordeaux-subcategory').style.display = 'block';
+        document.getElementById('french-bordeaux-list').style.display = 'block';
+        document.getElementById('french-bourgogne-subcategory').style.display = 'block';
+        document.getElementById('french-bourgogne-list').style.display = 'block';
+        document.getElementById('french-rhone-subcategory').style.display = 'block';
+        document.getElementById('french-rhone-list').style.display = 'block';
+        document.getElementById('french-loire-subcategory').style.display = 'block';
+        document.getElementById('french-loire-list').style.display = 'block';
+        document.getElementById('french-alsace-subcategory').style.display = 'block';
+        document.getElementById('french-alsace-list').style.display = 'block';
+        document.getElementById('french-provence-subcategory').style.display = 'block';
+        document.getElementById('french-provence-list').style.display = 'block';
+      }
+    }
+    
+    // 最初に "By The Glass" を表示状態にしておく
+    toggleCategory('glass');
+  </script>
+</body>
+</html>
